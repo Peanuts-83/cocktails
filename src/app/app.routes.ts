@@ -6,7 +6,7 @@ import { CocktailFormComponent } from './cocktail-form/cocktail-form.component'
 
 
 export const APP_ROUTES: Routes = [
-  { path: '**', redirectTo: 'cocktails', pathMatch: 'full' },
+  { path: '', redirectTo: 'cocktails', pathMatch: 'full' },
   {
     path: 'cocktails', component: CocktailContainerComponent, children: [
       { path: 'new', component: CocktailFormComponent },
@@ -15,5 +15,6 @@ export const APP_ROUTES: Routes = [
       { path: '', redirectTo: '0', pathMatch: 'full' }
     ]
   },
-  { path: 'panier', component: PanierContainerComponent }
+  { path: 'panier', component: PanierContainerComponent },
+  { path: '**', redirectTo: 'cocktails', pathMatch: 'full' }
 ]

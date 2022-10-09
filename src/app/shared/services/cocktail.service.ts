@@ -66,7 +66,6 @@ export class CocktailService {
       if (!cocktails.length) {
         this.http.post("https://restapi.fr/api/tomCocktails", initialCocktails).subscribe()
       }
-      // this.cocktails$.next(cocktails)
     })
   }
 

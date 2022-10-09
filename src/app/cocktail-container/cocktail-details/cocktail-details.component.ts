@@ -1,5 +1,5 @@
-import { Component, Input, OnDestroy, OnInit } from '@angular/core'
-import { ActivatedRoute, ParamMap } from '@angular/router'
+import { Component, Input, OnDestroy, OnInit, AfterViewInit } from '@angular/core'
+import { ActivatedRoute, ParamMap, Router } from '@angular/router'
 import { Subscription } from 'rxjs'
 import { CocktailService } from 'src/app/shared/services/cocktail.service'
 import { PanierService } from 'src/app/shared/services/panier.service'
@@ -10,14 +10,15 @@ import { Cocktail } from '../../shared/interfaces/cocktail.interface'
   templateUrl: './cocktail-details.component.html',
   styleUrls: ['./cocktail-details.component.scss'],
 })
-export class CocktailDetailsComponent implements OnInit, OnDestroy {
+export class CocktailDetailsComponent implements OnInit, OnDestroy, AfterViewInit {
   public cocktail!: Cocktail
   public subscription!: Subscription
 
   constructor(
     private panierService: PanierService,
     private cocktailService: CocktailService,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private router:Router
   ) { }
 
   ngOnInit(): void {
@@ -33,7 +34,13 @@ export class CocktailDetailsComponent implements OnInit, OnDestroy {
         this.cocktail = cocktail
       })
     })
+  }
 
+  ngAfterViewInit(): void {
+    if (!this.cocktail) {
+      console.log('no cocktail');
+      this.router.navigate([''])
+    }
   }
 
   ngOnDestroy(): void {
