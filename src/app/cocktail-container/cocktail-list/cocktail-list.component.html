@@ -1,0 +1,15 @@
+<div class="mb-20 d-flex flex-row flex-justify-content-between">
+  <h3>Liste des cocktails</h3>
+  <input type="text" class="w-100" type="text" placeholder="Recherchez un cocktail" [(ngModel)]="search">
+</div>
+<ul class="mb-20 list-primary">
+  <ng-container *ngIf="cocktails">
+    <li *ngFor="let cocktail of cocktails | filter: search; let i = index" [routerLink]="[i]" routerLinkActive="active">
+      <div class="icon">
+        <img src="{{cocktail.img}}" alt="icon">
+      </div>
+      {{ cocktail.name}}
+    </li>
+  </ng-container>
+</ul>
+<button class="btn btn-primary" routerLink="new">Ajouter un cocktail</button>
