@@ -33,6 +33,9 @@ export class CocktailFormComponent implements OnInit {
     return this.cocktailForm.get('ingredients') as FormArray
   }
 
+  public set ingredients(newValues) {
+  }
+
   public addIngredient(): void {
     this.ingredients.push(
       this.fb.group({
@@ -40,6 +43,11 @@ export class CocktailFormComponent implements OnInit {
         quantity: [0, Validators.required]
       })
     )
+  }
+  
+
+  public deleteIngredient(index: number): void {
+    this.ingredients.removeAt(index)
   }
 
   private initForm(cocktail: Cocktail = {

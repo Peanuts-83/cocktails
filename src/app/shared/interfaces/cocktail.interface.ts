@@ -6,4 +6,5 @@ export interface Cocktail {
   img: string
   description: string
   ingredients: Ingredient[]
+  createdAt?: string
 }

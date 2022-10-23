@@ -6,7 +6,7 @@ import { Ingredient } from '../interfaces/ingredient.interface'
   providedIn: 'root'
 })
 export class PanierService {
-  public ingredients$: BehaviorSubject<Ingredient[] | null> = new BehaviorSubject<Ingredient[] | null>(null)
+  public ingredients$: BehaviorSubject<Ingredient[] | null> = new BehaviorSubject<Ingredient[] | null>(JSON.parse(sessionStorage.getItem('cocktailsPanier') || ''))
 
   addPannier (ingredients: Ingredient[]): void {
     const currentValue = this.ingredients$.value
@@ -21,7 +21,7 @@ export class PanierService {
           return acc
         }, {}
       )
-      const result = Object.keys(obj).map(key => ({
+      const result: Ingredient[] = Object.keys(obj).map(key => ({
         name: key,
         quantity: obj[key]
       }))
@@ -29,8 +29,8 @@ export class PanierService {
     } else{
       this.ingredients$.next(ingredients)
     }
+    sessionStorage.setItem('cocktailsPanier', JSON.stringify(this.ingredients$.value))
     console.log('Total panier:', this.ingredients$.value);
-
   }
 
   constructor() { }

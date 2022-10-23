@@ -38,7 +38,6 @@ export class CocktailDetailsComponent implements OnInit, OnDestroy, AfterViewIni
 
   ngAfterViewInit(): void {
     if (!this.cocktail) {
-      console.log('no cocktail');
       this.router.navigate([''])
     }
   }
