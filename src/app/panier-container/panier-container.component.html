@@ -1,4 +1,11 @@
 <div class="container d-flex flex-column">
-  <h2 class="mb-20">Panier</h2>
+  <div class="d-flex flex-row flex-justify-content-between">
+    <h2 class="mb-20">Panier</h2>
+    <span>
+      <button class="btn btn-secondary mx-10 print-panier">imprimer la liste</button>
+      <button class="btn btn-ternary delete-panier" (click)="deletePanier()">vider le panier</button>
+    </span>
+
+  </div>
   <app-ingredient-list [ingredients]="ingredients" ></app-ingredient-list>
 </div>

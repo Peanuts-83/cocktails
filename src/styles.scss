@@ -96,6 +96,10 @@ body {
   margin: 20px;
 }
 
+.mx-10 {
+  margin: 0 10px;
+}
+
 .mb-20 {
   margin-bottom: 20px;
 }
@@ -122,7 +126,8 @@ button:disabled {
   cursor: pointer;
 
   &-primary {
-    background-color: var(--primary);
+    border: 1px solid white;
+    background-color: var(--pvar(--lightgray)rimary);
     color: white;
 
     &:hover {
@@ -134,6 +139,24 @@ button:disabled {
 
   &-secondary {
     background-color: #ddd;
+    border: 1px solid var(--lightgray) !important;
+
+    &:hover {
+      border: 1px solid var(--secondary) !important;
+    }
+
+    transition: border 0.4s;
+  }
+
+  &-ternary {
+    background-color: #ddd;
+    color: var(--text-regular);
+
+    &:hover {
+      color: var(--accent);
+    }
+
+    transition: color 0.4s;
   }
 }
 

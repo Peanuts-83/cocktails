@@ -10,6 +10,7 @@ import { Cocktail } from '../shared/interfaces/cocktail.interface'
   styleUrls: ['./cocktail-form.component.scss']
 })
 export class CocktailFormComponent implements OnInit {
+  public idCocktail: string | null = null
   public cocktail!: Cocktail
   public cocktailForm: FormGroup = this.fb.group({
     name: ['', Validators.required],
@@ -29,6 +30,10 @@ export class CocktailFormComponent implements OnInit {
     this.router.navigate(['../'], { relativeTo: this.activatedRoute })
   }
 
+  public deleteCocktail() {
+    this.cocktail && this.cocktail._id && this.cocktailService.deleteCocktail(this.cocktail._id).subscribe(() => this.router.navigate(['../'], { relativeTo: this.activatedRoute }))
+  }
+
   public get ingredients(): FormArray {
     return this.cocktailForm.get('ingredients') as FormArray
   }
@@ -44,7 +49,7 @@ export class CocktailFormComponent implements OnInit {
       })
     )
   }
-  
+
 
   public deleteIngredient(index: number): void {
     this.ingredients.removeAt(index)

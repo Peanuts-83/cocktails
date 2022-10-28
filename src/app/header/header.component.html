@@ -8,6 +8,7 @@
     </li>
     <li routerLink="panier" routerLinkActive="active">
       Ingredients
+      <div class="counter" *ngIf="counter>0" >{{counter}}</div>
     </li>
   </ul>
 </nav>

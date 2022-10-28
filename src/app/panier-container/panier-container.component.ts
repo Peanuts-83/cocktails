@@ -12,6 +12,10 @@ export class PanierContainerComponent implements OnInit, OnDestroy {
   public ingredients: Ingredient[] | null = null
   public subscription: Subscription = new Subscription()
 
+  public deletePanier() {
+    this.panierService.deletePanier()
+  }
+
   constructor(private panierService: PanierService) { }
 
   ngOnInit(): void {
