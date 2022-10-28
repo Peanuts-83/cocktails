@@ -15,5 +15,5 @@ export const APP_ROUTES: Routes = [
     ]
   },
   { path: 'panier', component: PanierContainerComponent },
-  { path: '**', redirectTo: 'cocktails', pathMatch: 'full' }
+  { path: '**', redirectTo: 'cocktails' }
 ]

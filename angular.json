@@ -18,6 +18,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "baseHref": "./",
             "outputPath": "dist",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -35,7 +36,7 @@
           },
           "configurations": {
             "production": {
-              "baseHref": "./",
+              "baseHref": "./cocktails/",
               "budgets": [
                 {
                   "type": "initial",
