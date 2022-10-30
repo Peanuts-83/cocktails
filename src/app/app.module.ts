@@ -31,7 +31,7 @@ import {HttpClientModule} from '@angular/common/http'
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(APP_ROUTES),
+    RouterModule.forRoot(APP_ROUTES, {useHash: true}),
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule
