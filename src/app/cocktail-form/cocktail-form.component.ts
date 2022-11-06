@@ -35,6 +35,7 @@ export class CocktailFormComponent implements OnInit {
   }
 
   public get ingredients(): FormArray {
+    // console.log('cocktailForm:', this.cocktailForm.value);
     return this.cocktailForm.get('ingredients') as FormArray
   }
 

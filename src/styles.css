@@ -30,6 +30,7 @@ a {
 body {
   font-family: var(--font-family);
   color: var(--text-regular);
+  background-color: white;
 }
 
 .container {
@@ -91,6 +92,10 @@ body {
   margin: 20px;
 }
 
+.mx-10 {
+  margin: 0 10px;
+}
+
 .mb-20 {
   margin-bottom: 20px;
 }
@@ -115,7 +120,8 @@ button:disabled {
   cursor: pointer;
 }
 .btn-primary {
-  background-color: var(--primary);
+  border: 1px solid white;
+  background-color: var(--pvar(--lightgray) rimary);
   color: white;
   transition: background-color 0.4s;
 }
@@ -124,6 +130,19 @@ button:disabled {
 }
 .btn-secondary {
   background-color: #ddd;
+  border: 1px solid var(--lightgray) !important;
+  transition: border 0.4s;
+}
+.btn-secondary:hover {
+  border: 1px solid var(--secondary) !important;
+}
+.btn-ternary {
+  background-color: #ddd;
+  color: var(--text-regular);
+  transition: color 0.4s;
+}
+.btn-ternary:hover {
+  color: var(--accent);
 }
 
 .list-primary-action li {

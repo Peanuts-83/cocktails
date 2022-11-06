@@ -17,4 +17,13 @@ ul li {
 }
 ul li:hover {
   background-color: var(--secondary);
+}
+ul .counter {
+  position: absolute;
+  top: 50px;
+  right: 20px;
+  font-size: 12px;
+  padding: 5px;
+  border-radius: 50%;
+  background-color: var(--accent);
 }/*# sourceMappingURL=header.component.css.map */
